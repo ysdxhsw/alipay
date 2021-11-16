@@ -25,7 +25,7 @@
             AlipayJSBridge.call("tradePay", {
             tradeNO: "2021111622001406300501450315"
             }, function(result) {
-              if ("9000" != data.resultCode) {
+              if ("9000" != result.resultCode) {
                 alert("支付失败");
               }
             });
