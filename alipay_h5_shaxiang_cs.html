@@ -19,6 +19,7 @@
             AlipayJSBridge.call("tradePay", {
             tradeNO: "2021111522001406300501449532"
             }, function(result) {
+                alert(JSON.stringify(result));
             alert(JSON.stringify(result.resultCode));
             switch  (JSON.stringify(result.resultCode)){
                 case '9000':
