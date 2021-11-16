@@ -19,26 +19,26 @@
             AlipayJSBridge.call("tradePay", {
             tradeNO: "2021111522001406300501449532"
             }, function(result) {
-            switch  (JSON.stringify(result.resultCode)){
-                case 9000:
+            switch  (JSON.stringify(result).resultCode){
+                case "9000":
                   alert("订单支付成功");
                 break;
-                case 8000:
+                case "8000":
                   alert("后台获取支付结果超时，暂时未拿到支付结果");
                 break;
-                case 6004:
+                case "6004":
                   alert("支付过程中网络出错， 暂时未拿到支付结果");
                 break;
-                case 7001:
+                case "7001":
                   alert("客户端-钱包中止快捷支付");
                 break;
-                case 6002:
+                case "6002":
                   alert("普通网络出错");
                 break;
-                case 6001:
+                case "6001":
                   alert("用户中途取消");
                 break;
-                case 4000:
+                case "4000":
                   alert("订单支付失败");
                 break;
                 default:
