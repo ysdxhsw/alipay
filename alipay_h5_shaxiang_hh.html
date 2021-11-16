@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title>支付</title>
+    </head>
+    
+
+    <script>
+        function ready(callback) {
+            // 如果jsbridge已经注入则直接调用
+            if (window.AlipayJSBridge) {
+                callback && callback();
+            } else {
+                // 如果没有注入则监听注入的事件
+                document.addEventListener('AlipayJSBridgeReady', callback, false);
+            }
+        }
+        ready(function(){
+            AlipayJSBridge.call("tradePay", {
+            tradeNO: "2021111522001406300501449532"
+            }, function(result) {
+              if ("9000" != data.resultCode) {
+                alert("支付失败");
+              }
+            });
+        });
+    </script>
+
+</html>
